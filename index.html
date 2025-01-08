@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playbook</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            padding: 20px;
+        }
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .banner {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        .banner .title {
+            font-size: 1.2em;
+            display: flex;
+            justify-content: space-between;
+        }
+        .banner .subtitle {
+            font-size: 1em;
+            margin-top: 5px;
+            border-top: 1px solid white;
+            padding-top: 5px;
+        }
+        .content {
+            display: none;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+        .step-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+        .dialogue {
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px 0;
+            text-align: right;
+            font-style: italic;
+        }
+        .dropdown {
+            margin-bottom: 20px;
+        }
+        .dropdown select {
+            font-size: 1em;
+            padding: 5px;
+            margin-left: 10px;
+        }
+        table { width: 100%; border-collapse: collapse; }
+        td { padding: 8px; border: 1px solid #ddd; vertical-align: top; }
+    </style>
+    <script>
+        function updateActivities() {
+            var selectedTime = document.getElementById('time-select').value;
+            var activities = document.getElementsByClassName('activity');
+
+            document.getElementById('selected-time').innerText = "Tiempo efectivo de clase: " + selectedTime + " minutos";
+
+            for (var i = 0; i < activities.length; i++) {
+                activities[i].style.display = 'block';
+            }
+
+             if (selectedTime === '45') {
+                document.getElementById('activity-2').style.display = 'none';
+            } else if (selectedTime === '40') {
+                document.getElementById('activity-2').style.display = 'none';
+                document.getElementById('activity-4').style.display = 'none';
+                  document.getElementById('activity-8').style.display = 'none';
+            }
+        }
+
+        function toggleContent(id) {
+            var content = document.getElementById(id);
+            if (content.style.display === "none") {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<body>
+
+<div class="header">
+    <h1>Playbook - S1 - M15</h1>
+</div>
+
+<div class="container">
+    <div class="dropdown">
+        <label for="time-select">Tiempo efectivo de Clase:</label>
+        <select id="time-select" onchange="updateActivities()">
+            <option value="50">50 minutos</option>
+            <option value="45">45 minutos</option>
+             <option value="40">40 minutos</option>
+        </select>
+    </div>
+
+    <h2 id="selected-time" class="time-title">Tiempo efectivo de clase: 50 minutos</h2>
+
+<!-- -------------------------------------------------Espacio para Actividades --------------------------------------------------------- -->
+
+<!-- Actividad 1 -->
+<div id="activity-1" class="activity">
+    <div class="banner" onclick="toggleContent('saludo_ritual')">
+        <div class="title">🎉 Actividad 1: Saludo y Ritual Gnius Club ⏰ Tiempo: 2.5 minutos</div>
+        <div class="subtitle">Dar la bienvenida a los Genios y establecer el tono para la clase.</div>
+    </div>
+    <div id="saludo_ritual" class="content">
+        <table>
+            <tr>
+                <td><strong>PASO 1 (0.5 minutos):</strong> Proyectar Diapositiva 2 "Bienvenida".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Hola, Genios. Hoy exploraremos herramientas avanzadas en el modelado 3D que nos ayudarán a diseñar como expertos. ¡Manos a la obra!"</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 2 (1 minuto):</strong> Proyectar Diapositiva 3 "¿Cómo están?".</td>
+               <td><strong>DIÁLOGO SUGERIDO:</strong> "Antes de comenzar, toquen su oreja derecha con la mano izquierda si están listos para aprender algo emocionante. Si necesitan un momento más, toquen su nariz con la mano derecha."</td>
+            </tr>
+            <tr>
+                 <td><strong>PASO 3 (0.5 minutos):</strong> Proyectar Diapositiva 4 "Gracias por Asistir".</td>
+                 <td><strong>DIÁLOGO SUGERIDO:</strong> "Ahora, juntemos nuestras manos en agradecimiento por estar aquí, listos para aprender y crear algo increíble. ¡Gracias por asistir, Genios!"</td>
+           </tr>
+            <tr>
+                 <td><strong>PASO 4 (0.5 minutos):</strong> Proyectar Diapositiva 5 "Objetivos de la Misión".</td>
+                 <td><strong>DIÁLOGO SUGERIDO:</strong> "Hoy tenemos tres objetivos: 1. Conocer los generadores de formas y sus aplicaciones creativas. 2. Combinar herramientas de corte para crear modelos precisos. 3. Aplicar estas técnicas en un reto emocionante de diseño 3D."</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!-- Actividad 2 -->
+<div id="activity-2" class="activity">
+    <div class="banner" onclick="toggleContent('innovacion_dia')">
+        <div class="title">💡 Actividad 2: Innovación del Día ⏰ Tiempo: 3 minutos</div>
+        <div class="subtitle">Introducir a los estudiantes a un ejemplo innovador relacionado con las herramientas de diseño y corte.</div>
+    </div>
+    <div id="innovacion_dia" class="content">
+        <table>
+            <tr>
+                <td><strong>PASO 1 (0.5 minutos):</strong> Proyectar Diapositiva 6 "Innovación del Día".</td>
+               <td><strong>DIÁLOGO SUGERIDO:</strong> "Genios, hoy hablaremos de una inspiración de diseño que usa técnicas avanzadas de corte: los cristales Swarovski. Veamos cómo estas herramientas logran resultados asombrosos en el diseño."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 2 (2 minutos):</strong> Proyectar Diapositiva 7 "Detalles del Corte de Cristales".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Los cristales Swarovski son conocidos por su precisión y simetría. Aquí tienen un video que muestra cómo el corte preciso transforma un material básico en algo tan sofisticado y hermoso."</td>
+            </tr>
+             <tr>
+                <td><strong>PASO 3 (0.5 minutos):</strong> Proyectar Diapositiva 8 "Reflexión sobre el Diseño".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Los cristales Swarovski son un ejemplo de cómo la precisión en el diseño y corte puede transformar una idea en una obra maestra. Al igual que ellos, en esta misión exploraremos cómo las herramientas de corte pueden llevar nuestros diseños al siguiente nivel."</td>
+             </tr>
+        </table>
+    </div>
+</div>
+
+<!-- Actividad 3 -->
+<div id="activity-3" class="activity">
+    <div class="banner" onclick="toggleContent('brain_gym')">
+        <div class="title">🧠 Actividad 3: Brain Gym ⏰ Tiempo: 12 minutos</div>
+        <div class="subtitle">Introducir a los estudiantes en las herramientas de modelado 3D.</div>
+    </div>
+    <div id="brain_gym" class="content">
+        <table>
+            <tr>
+                <td><strong>PASO 1 (0.5 minutos):</strong> Proyectar Diapositiva 9 "Introducción al Brain Gym".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Hoy continuaremos con nuestro trabajo explorando técnicas y herramientas avanzadas de diseño en TinkerCAD, específicamente los Generadores de Formas y las Herramientas de Corte. Aunque los Generadores de Formas son una herramienta relativamente conocida dentro de TinkerCAD, combinarlos con la técnica de Herramientas de Corte, que es poco conocida por la mayoría, te dará una gran ventaja cuando se trata de modelado 3D. Ahora exploraremos cómo crear formas más complejas, ¡así que vamos a ello!"</td>
+           </tr>
+            <tr>
+                <td><strong>PASO 2 (1 minuto):</strong> Proyectar Diapositiva 10 "Formas Básicas".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "¿Alguna vez te has preguntado por qué solo hemos trabajado con formas básicas en TinkerCAD? La respuesta es simple: todas las formas complejas comenzaron como formas simples, y desarrollar la habilidad de crear casi cualquier forma desde cero es una verdadera ventaja entre modeladores y diseñadores 3D. Ahora bien, esto no significa que las formas básicas siempre sean el único camino a seguir, especialmente porque hay algunas formas que es más sencillo modificar desde una ya creada que empezar desde cero."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 3 (1 minuto):</strong> Proyectar Diapositiva 11 "Generadores de Formas".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Despliega el menú de formas de TinkerCAD, y encontrarás una opción llamada Generadores de Formas. Selecciónala, y verás múltiples páginas con formas interesantes y especializadas, muchas de ellas aportadas por la comunidad de TinkerCAD.
+Estas formas, en particular, suelen tener una serie de opciones de personalización en su panel de configuración, así que asegúrate de hacer ajustes para explorar su potencial. Hay demasiadas para cubrir todas, pero mencionaré algunas populares."</td>
+            </tr>
+           <tr>
+                <td><strong>PASO 4 (1 minuto):</strong> Proyectar Diapositiva 12 "Herramienta de Extrusión".</td>
+               <td><strong>DIÁLOGO SUGERIDO:</strong> "La herramienta de Extrusión te permite deformar y personalizar las formas, dándoles un aspecto más natural. Es ideal para diseños orgánicos que necesiten detalles únicos."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 5 (1 minuto):</strong> Proyectar Diapositiva 13 "Texto Curvado".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "En TinkerCAD, puedes agregar texto con opciones avanzadas como texto curvado o usar fuentes personalizadas. Esto abre posibilidades para personalizar tus diseños con etiquetas o mensajes únicos."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 6 (1 minuto):</strong> Proyectar Diapositiva 14 "Fillet y Cycloid".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "El Fillet (o Chamfer) es perfecto para redondear bordes y suavizar tus diseños. También puedes usar el Cycloid para lograr efectos similares. Estas herramientas son clave para mejorar la estética de tus modelos."</td>
+            </tr>
+           <tr>
+                <td><strong>PASO 7 (1 minuto):</strong> Proyectar Diapositiva 15 "Exploración de Formas".</td>
+                 <td><strong>DIÁLOGO SUGERIDO:</strong> "Puedes encontrar una amplia gama de formas dentro de la pestaña de Generadores de Formas. Exploraremos en profundidad las más funcionales más adelante, pero por el momento, siéntete libre de admirar la variedad de formas a tu disposición. Desde formas geométricas hasta abstractas, pasando por árboles, casas, muros e incluso terrenos personalizables para cuando quieras crear un modelo para un videojuego o algo parecido. Mi recomendación es que sigas probando y experimentando con las formas más locas que encuentres; probablemente descubrirás nuevos e interesantes usos para ellas."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 8 (1 minuto):</strong> Proyectar Diapositiva 16 "Herramientas de Corte".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "La pestaña de Generador de Formas es bastante extensa, pero no infinita. Todavía hay algunas formas que necesitarán algo más que simplemente apilar formas, y queremos que puedas modelar cualquier cosa que imagines. Es por eso que es momento de enseñarte sobre las Herramientas de Corte."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 9 (1 minuto):</strong> Proyectar Diapositiva 17 "Concepto de Herramientas de Corte".</td>
+                 <td><strong>DIÁLOGO SUGERIDO:</strong> "¿Qué es una herramienta de corte? Es más simple de lo que parece, pero al mismo tiempo no es algo que se escuche con frecuencia en este contexto. Muchas personas tienen un nombre diferente para la técnica o ni siquiera se molestan en nombrarla. Por fines educativos, nos referiremos a ellas como herramientas de corte.
+Una herramienta de corte es una forma compleja creada con el único propósito de ser restada de otra forma para crear algo que de otra manera sería difícil de diseñar. Aquí está el ejemplo más simple que puedo darte: imagina que quieres redondear la punta de un objeto puntiagudo, como una pirámide. ¿Qué opciones tienes? La mayoría de las personas comenzaría a agregar muchas formas y restarlas poco a poco hasta lograr algo decente. Pero nosotros no; diseñamos una herramienta que hará el trabajo más fácil. Tomamos esa herramienta y la restamos de la pirámide, logrando nuestro objetivo."</td>
+            </tr>
+             <tr>
+                <td><strong>PASO 10 (1 minuto):</strong> Proyectar Diapositiva 18 "Aplicación de Herramientas de Corte".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Las herramientas de corte son un recurso muy útil cuando se trata de formas complejas. Por ejemplo, si quisiéramos crear una esfera que termine con la forma de una pirámide, sería un dolor de cabeza hacerlo forma por forma, y probablemente los resultados no serían muy satisfactorios. Lo que podemos hacer es primero restar una pirámide de un cubo, y luego restar ese cubo de la esfera. El resultado es bastante suave, que es uno de los principales beneficios de las herramientas de corte. Una vez que lo ves, se vuelve obvio. Ahora deberías empezar a pensar en crear formas de manera diferente."</td>
+            </tr>
+             <tr>
+                <td><strong>PASO 11 (1 minuto):</strong> Proyectar Diapositiva 19 "Vaciado de Objetos".</td>
+               <td><strong>DIÁLOGO SUGERIDO:</strong> "Las herramientas de corte no solo parecen moldes, y no siempre serán una forma recortada de un cubo. La técnica de herramientas de corte viene en muchas formas y tamaños diferentes. Tomemos como ejemplo la cabina de un avión. Podemos lograr fácilmente la forma combinando un par de paraboloides, un cilindro y finalmente cortando todo a la mitad. Pero una cabina debe ser hueca por dentro, así que tenemos que vaciarla. Podemos hacer esto fácilmente duplicando la forma de la cabina, escalándola y restándola de la pieza principal. ¡Es así de simple!"</td>
+            </tr>
+             <tr>
+                <td><strong>PASO 12 (1 minuto):</strong> Proyectar Diapositiva 20 "Patrones con Herramientas de Corte".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "La complejidad de esta técnica no radica en su ejecución, no es algo difícil de realizar. Entonces, si no es difícil de ejecutar, ¿por qué se considera una técnica avanzada? La complejidad de esta técnica radica en su aplicación. Un diseñador experimentado puede encontrar fácilmente formas de mejorar su diseño utilizando esta técnica.
+Tomemos este ejemplo: aquí estamos haciendo una réplica simple de un Y-Wing Fighter de Star Wars. Queremos tener un diseño sobre la forma, pero no podemos hacerlo tan fácilmente, así que lo que hicimos fue: primero, creamos la forma general plana de la nave; después, diseñamos el patrón que queríamos colocar sobre ella; luego, duplicamos y restamos el patrón de la forma original (ahí está la herramienta de corte), y finalmente terminamos esculpiendo los últimos detalles en ambas formas."</td>
+           </tr>
+             <tr>
+                 <td><strong>PASO 13 (1 minuto):</strong> Proyectar Diapositiva 21 "Reflexión sobre las Técnicas".</td>
+                 <td><strong>DIÁLOGO SUGERIDO:</strong> "Esta técnica puede parecer obvia, pero no lo es. Sin embargo, con suficiente práctica y creatividad, se convertirá en un hábito, y te acostumbrarás a crear formas combinando, restando, o como aprendimos hoy, combinando primero para luego restar de otra."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 14 (0.5 minutos):</strong> Proyectar Diapositiva 22 "Revisión de Objetivos".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Genios, hasta ahora hemos conocido los Generadores de Formas y aprendido a usarlos para crear diseños personalizados. También exploramos cómo combinar formas para cortar con precisión y crear detalles complejos. ¡Gran trabajo!"</td>
+             </tr>
+        </table>
+    </div>
+</div>
+<!-- Actividad 4 -->
+<div id="activity-4" class="activity">
+    <div class="banner" onclick="toggleContent('state_change')">
+        <div class="title">🤣 Actividad 4: State Change ⏰ Tiempo: 2.5 minutos</div>
+        <div class="subtitle">Realizar un juego de palabras rápido para activar la mente.</div>
+    </div>
+    <div id="state_change" class="content">
+        <table>
+            <tr>
+                <td><strong>PASO 1 (0.5 minutos):</strong> Proyectar Diapositiva 23 "Introducción al Juego".</td>
+                 <td><strong>DIÁLOGO SUGERIDO:</strong> "Vamos a jugar algo rápido para activar nuestras mentes. Cada uno dirá una palabra relacionada con el tema del día. Si te tardas demasiado, pasaremos al siguiente. ¡Prepárense para pensar rápido!"</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 2 (1.5 minutos):</strong> Proyectar Diapositiva 24 "Tiempo para Participar".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "N/A"</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 3 (0.5 minutos):</strong> Proyectar Diapositiva 25 "Reflexión".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "¡Buen trabajo, Genios! Este juego nos ayuda a pensar rápido y conectar ideas relacionadas con el tema. Estas habilidades son esenciales para resolver problemas y fomentar nuestra creatividad en diseño 3D."</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!-- Actividad 5 -->
+<div id="activity-5" class="activity">
+    <div class="banner" onclick="toggleContent('team_gnius')">
+        <div class="title">🤝 Actividad 5: Team Gnius ⏰ Tiempo: 4 minutos</div>
+        <div class="subtitle">Formar equipos y asignar tareas prioritarias para trabajar en equipo en la misión.</div>
+    </div>
+    <div id="team_gnius" class="content">
+        <table>
+            <tr>
+                 <td><strong>PASO 1 (0.5 minutos):</strong> Proyectar Diapositiva 26 "Formación de Equipos".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Genios, formen equipos de dos personas, pero esta vez asegúrense de elegir a alguien con quien no hayan trabajado antes. Tienen un minuto para organizarse."</td>
+            </tr>
+            <tr>
+                 <td><strong>PASO 2 (1 minuto):</strong> Proyectar Diapositiva 27 "Tiempo para Formación de Equipos".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "N/A"</td>
+            </tr>
+            <tr>
+                 <td><strong>PASO 3 (0.5 minutos):</strong> Proyectar Diapositiva 28 "Organización en Scrumboard".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Hoy usaremos nuevamente la metodología Kanban para colaborar. Entren a https://scrumboard.org/, creen un tablero gratis y añadan las tareas necesarias para el reto que elijan: rookie, master o hacker. Divídanse el trabajo y asignen las tareas según la dificultad del reto. Este ejercicio les ayudará a practicar la colaboración y la organización. Tienen 3 minutos para armar su tablero."</td>
+            </tr>
+             <tr>
+                 <td><strong>PASO 4 (3 minutos):</strong> Proyectar Diapositiva 29 "Tiempo para Crear el Tablero".</td>
+                 <td><strong>DIÁLOGO SUGERIDO:</strong> "N/A"</td>
+           </tr>
+        </table>
+    </div>
+</div>
+
+<!-- Actividad 6 -->
+<div id="activity-6" class="activity">
+    <div class="banner" onclick="toggleContent('challenge')">
+        <div class="title">🏆 Actividad 6: Challenge ⏰ Tiempo: 20 minutos</div>
+        <div class="subtitle">Diseñar una esfera de navidad usando técnicas avanzadas en TinkerCAD.</div>
+    </div>
+    <div id="challenge" class="content">
+        <table>
+            <tr>
+                <td><strong>PASO 1 (0.5 minutos):</strong> Proyectar Diapositiva 30 "Introducción al Challenge".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Genios, ha llegado el momento de enfrentar el reto del día. Este desafío pondrá a prueba su creatividad, precisión y manejo de herramientas avanzadas en TinkerCAD. ¡Prepárense para sorprendernos con sus diseños únicos!"</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 2 (0.5 minutos):</strong> Proyectar Diapositiva 31 "Explicación del Challenge".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Hoy van a diseñar una esfera de navidad en TinkerCAD. Podrán utilizar tanto formas básicas como generadores de formas, pero con una restricción: solo podrán combinar sólidos dos veces. Esto significa que tendrán que planificar cuidadosamente su diseño para maximizar la eficiencia y creatividad. Recuerden que las herramientas de corte y los generadores de formas son clave para crear detalles únicos. ¡Dejen volar su imaginación!"</td>
+            </tr>
+            <tr>
+                 <td><strong>PASO 3 (13 minutos):</strong> Proyectar Diapositiva 32 "Tiempo para Diseñar".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "N/A"</td>
+            </tr>
+             <tr>
+                 <td><strong>PASO 4 (0.5 minutos):</strong> Proyectar Diapositiva 33 "Actividad de Comparación en Equipos".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Ahora, junten sus diseños con el equipo más cercano. Compartan sus esferas y discutan cómo utilizaron las herramientas de corte y generadores de formas. ¿Qué decisiones tomaron? ¿Qué partes les resultaron más desafiantes? Esta es una excelente oportunidad para aprender unos de otros y mejorar sus habilidades."</td>
+            </tr>
+            <tr>
+                 <td><strong>PASO 5 (5 minutos):</strong> Proyectar Diapositiva 34 "Tiempo para Compartir Diseños".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "N/A"</td>
+           </tr>
+            <tr>
+                 <td><strong>PASO 6 (0.5 minutos):</strong> Proyectar Diapositiva 35 "Revisión de Objetivos".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Genios, hemos cumplido todos los objetivos de esta misión práctica: 1. Usar herramientas avanzadas como los generadores de formas y herramientas de corte. 2. Diseñar una esfera creativa y funcional con restricciones específicas. 3. Compartir y reflexionar sobre las estrategias utilizadas. ¡Excelente trabajo!"</td>
+            </tr>
+             <tr>
+                 <td><strong>PASO 7 (0.5 minutos):</strong> Proyectar Diapositiva 36 "Premiación".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "¡Felicidades, Genios! Han demostrado creatividad, precisión y un gran dominio de las herramientas avanzadas en TinkerCAD. Por su esfuerzo y dedicación en este reto, todos ganan Mon-e. ¡Sigan practicando y explorando estas técnicas para futuros proyectos!"</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!-- Actividad 7 -->
+<div id="activity-7" class="activity">
+    <div class="banner" onclick="toggleContent('easter_egg')">
+        <div class="title">🥚 Actividad 7: Easter Egg ⏰ Tiempo: 2 minutos</div>
+        <div class="subtitle">Reforzar el aprendizaje mediante una pregunta sorpresa.</div>
+    </div>
+    <div id="easter_egg" class="content">
+        <table>
+            <tr>
+                 <td><strong>PASO 1 (0.5 minutos):</strong> Proyectar Diapositiva 37 "Introducción a la Pregunta".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Genios, es hora de nuestro Easter Egg. Les haré una pregunta sobre lo que hemos trabajado. Si saben la respuesta, levanten la mano. ¡Recuerden, no digan la respuesta en voz alta!"</td>
+            </tr>
+             <tr>
+                 <td><strong>PASO 2 (0.5 minutos):</strong> Proyectar Diapositiva 38 "Pregunta Gamificada".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Uno, dos, tres. Levanten la mano si saben la respuesta. ¡Muy bien! Vamos a escuchar lo que tienen que decir."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 3 (1 minuto):</strong> Proyectar Diapositiva 39 "Respuesta Correcta".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Uno, ven y dime la respuesta al oído. Ahora tú, dos. Y por último, el tres. La respuesta correcta es ""Y-Wing Starfighter"". ¡Felicidades a los ganadores, reciben Mon-e!"</td>
+           </tr>
+        </table>
+    </div>
+</div>
+
+<!-- Actividad 8 -->
+<div id="activity-8" class="activity">
+    <div class="banner" onclick="toggleContent('honor_dojo')">
+        <div class="title">🎖️ Actividad 8: Honor de Dojo ⏰ Tiempo: 2 minutos</div>
+        <div class="subtitle">Despedida y recogida de materiales.</div>
+    </div>
+    <div id="honor_dojo" class="content">
+        <table>
+            <tr>
+                <td><strong>PASO 1 (2 minuto):</strong> Proyectar Diapositiva 40 "Honor the Dojo".</td>
+                 <td><strong>DIÁLOGO SUGERIDO:</strong> "Genios, antes de cerrar esta misión, asegúrense de regresar las Magic Tablets y dejar todo en orden. Gracias por mantener nuestro espacio limpio y organizado. ¡Gran trabajo hoy!"</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!-- -------------------------------------------------Espacio para Actividades --------------------------------------------------------- -->
+
+</div>
+
+</body>
+</html>
